@@ -1,0 +1,6 @@
+git init -> Iniciar projeto (main é o novo termo para master)
+git status -> Estado do repositório, se tem arquivo alterado
+git config --local user.name "Seu nome aqui"
+git config --local user.email "Seu email aqui"
+git add . (para todos os arquivos da pasta) ou git add nome do arquivo
+
