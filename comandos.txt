@@ -20,9 +20,20 @@ git merge nome_branch (irá mesclar as branchs, primeiro faço checkout e depois
 git rebase nome_branch (atualiza a branch que estou com os commits de outra branch)
 no merge é gerado outro commit no log, no rebase apenas aplica o comiit de outra branch
 
+git stash -> armazena os dados alterados para serem recuperados depois
+git stash list -> lista os dados armazenados
+git stash apply 0 -> recupera a posição 0 da lista (necessário dar git stash drop para limpar)
+git stash pop -> recupera e limpa da lista 
+
+git diff (mostra o que foi alterado)
+git tag -a v0.1.0 -m "texto" (cria um ponto de marco, para indicar que ali gerou uma versão estavel)
+git push local v0.1.0 (enviar a tag ao github)
+
 ---control z
 git checkout -- ou git checkout --arquivo.txt (desfazer alteração)
 o comando checkout navega entre estados do repositório
 
 git reset HEAD nome_arquivo (depois de ter feito o commit e quero desfazer, sem enviar no push, 
 tem que fazer o checkout -- para descartar o ajuste)
+
+git revert [hash do log] (desfazer algo que já foi feito o push)
