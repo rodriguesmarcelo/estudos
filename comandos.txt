@@ -5,3 +5,24 @@ git config --local user.email "Seu email aqui"
 git add . (para todos os arquivos da pasta) ou git add nome do arquivo
 git commit -m "mensagem para identificar o que foi alterado"
 git log -> verificar o que foi comitado
+git init --bare (servidor puro sem cópia física)
+git clone -> clone um repositório
+git remote add local "Caminho" -> adiciona um repositorio remoto
+git remote rename master local
+
+git push local master (indica que vou empurrar as alterações do repositório "local" para a "master")
+
+git pull local master (indica que vou buscar os dados da "master" para o repositório "local")
+
+git branch nome_branch_task (ou git checkout -b nome_branch_task - já cria a branch e faz o checkout)
+git checkout nome_branch_task (muda para a branch)
+git merge nome_branch (irá mesclar as branchs, primeiro faço checkout e depois falo de qual branch vou pegar os dados)
+git rebase nome_branch (atualiza a branch que estou com os commits de outra branch)
+no merge é gerado outro commit no log, no rebase apenas aplica o comiit de outra branch
+
+---control z
+git checkout -- ou git checkout --arquivo.txt (desfazer alteração)
+o comando checkout navega entre estados do repositório
+
+git reset HEAD nome_arquivo (depois de ter feito o commit e quero desfazer, sem enviar no push, 
+tem que fazer o checkout -- para descartar o ajuste)
