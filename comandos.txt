@@ -37,3 +37,44 @@ git reset HEAD nome_arquivo (depois de ter feito o commit e quero desfazer, sem 
 tem que fazer o checkout -- para descartar o ajuste)
 
 git revert [hash do log] (desfazer algo que já foi feito o push)
+
+--------- pull request / fork
+fork -> clono um repositorio para realizar ajustes
+pull request -> envio os dados para repositorio atual
+
+para unificar varios commits antes de realizar o push:
+git log --oneline -> para verificar os commits
+git rebase -i HEAD~3 -> vai aparecer o pick com o commit, 
+depois disso nas linhas abaixo, coloco o "s" (squash juntar) e o hash do commit que quero juntar
+para sair e salvar "+x"
+
+git cherry-pick [hash] -> trazer um commit específico para a branch
+git blame nome-arquivo -> trazer o responsável por cada linha do código
+
+------------ git flow
+
+git branch development -> criar a branch dev para enviar os ajustes
+git checkout -b feature/o-que-vou-fazer -> cada ajuste separado
+
+git checkout development
+git merge feature/o-que-vou-fazer -> após terminar o ajuste, trago as alterações para a branch dev
+
+git checkout -b hotfix/v0.1.1 -> ajuste de bug
+git checkout master 
+git merge hotfix/v0.1.1
+git tag -a v0.1.1 -> fecha a versao do bug
+
+trazer a correção do bug para o branch dev
+git checkout development
+git merge hotfix/v0.1.1
+
+criar o branch com todos os ajuste para teste
+git checkout -b release/v0.2.0
+
+após tudo testado, coloco em producao
+git checkout master
+git merge release/v0.2.0
+git tag -a v0.2.0 -m "Fechando 0.2"
+
+git branch -d {nome_branch} remove uma branch que já tem seu trabalho unido à branch atual
+git branch -D {nome_branch} força apagar uma branch mesmo que não fiz os commits na branch atual
